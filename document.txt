@@ -1,0 +1,14 @@
+dependecies:
+        express,mongoose,dotenv,body-parser,nodemon,jsonwebtoken,bcryptjs,multer
+
+connection to DB
+
+Api creation :
+    models 
+        vendor: username,email,password
+        Firm : firmName,area,category,region,offer,image
+        Product:  productName,price,category,image,bestseller,description
+    controllers
+          vendorController
+    routes
+      vendoRroutes
