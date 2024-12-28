@@ -29,3 +29,8 @@ app.listen(PORT,()=>{
     DB;
     
 })
+
+
+app.use('/', (req, res) => {
+    res.send("<h1> Welcome to my website");
+})
