@@ -12,7 +12,7 @@ const path = require('path')
 const app =express();
 dotenv.config();
 app.use(bodyparser.json())
-const PORT=5000;
+const PORT= process.env.PORT || 5000;
 
 const DB=mongoose.connect(process.env.MONGO_URI).then(()=>{
     console.log('DB connected');  }).catch((error)=>{console.log(error)})
