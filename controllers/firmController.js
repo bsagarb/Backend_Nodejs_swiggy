@@ -32,6 +32,10 @@ const addFirm=async(req,res)=>{
     if(!vendor){
         return res.status(401).json({message:"Vendor not found"})
     }
+    if(vendor.firm.length >0){
+        return res.status(400).json({message:"vendor can have only one Firm"})
+    }
+
     const existingFirm = await Firm.findOne({ firmName });
     if (existingFirm) {
         return res.status(400).json({ message: "Firm with this name already exists" });
@@ -41,10 +45,13 @@ const addFirm=async(req,res)=>{
     })
     
     const saveFirm=await firm.save();
+    const firmID = saveFirm._id
     vendor.firm.push(saveFirm);
     await vendor.save();
 
-    return res.status(200).json({message:"firm added succesfully"});
+   
+
+    return res.status(200).json({message:"firm added succesfully",firmID});
 
    }catch(error){
     res.status(500).json({error:"internal server error"})
@@ -52,7 +59,7 @@ const addFirm=async(req,res)=>{
    }
 
 }
-
+ 
 
 const deleteFirmById = async(req,res)=>{
     try{

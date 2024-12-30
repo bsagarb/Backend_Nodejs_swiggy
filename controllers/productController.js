@@ -1,6 +1,8 @@
 const Product = require('../models/Product');
 const multer = require('multer');
 const Firm = require('../models/Firm')
+const path = require('path');
+
 
 
 const storage = multer.diskStorage({
@@ -33,7 +35,8 @@ const addProduct = async (req,res)=>{
 
     const saveProduct = await product.save();
      firm.products.push(saveProduct)
-    await firm.save()
+      await firm.save()
+      
 
     return res.status(200).json(saveProduct);
 

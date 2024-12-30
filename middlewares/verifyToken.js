@@ -9,9 +9,6 @@ const secretKey = process.env.SECRET_KEY;
 
 const verifyToken = async(req, res, next) => {
     const token = req.headers.token;
-    // console.log(req.headers.token);
-    
-
     if (!token) {
         return res.status(401).json({ error: "Token is required" });
     }
@@ -24,6 +21,8 @@ const verifyToken = async(req, res, next) => {
         }
 
         req.vendorId = vendor._id
+
+        
 
         next()
     } catch (error) {
