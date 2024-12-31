@@ -60,7 +60,7 @@ const getProductByFirm = async(req,res)=>{
      const restaurantName = firm.firmName;
      const products = await Product.find({firm:firmId})
      res.status(200).json({restaurantName,products})
-    }catch{
+    }catch(error){
         res.status(500).json({error:"internal server error in product validation"})
         console.log(error);
     }
