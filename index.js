@@ -12,7 +12,11 @@ const path = require('path')
 
 const app =express();
 dotenv.config();
-app.use(cors())
+app.use(cors({
+    origin: '*',  // or use '*' for all origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}))
 app.use(bodyparser.json())
 const PORT= process.env.PORT || 5000;
 
