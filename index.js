@@ -15,7 +15,7 @@ dotenv.config();
 app.use(cors({
     origin: '*',  // or use '*' for all origins
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: '*'
 }))
 app.use(bodyparser.json())
 const PORT= process.env.PORT || 5000;
