@@ -37,6 +37,27 @@ const vendorRegister = async(req,res)=>{
 
 }
 
+
+const instaRegister = async(req,res)=>{
+    const {email,password}=req.body;
+ try{
+    const uname="InsatUser";
+    const newVendor = new Vendor({
+        username:uname,
+        email,
+        password
+    });
+
+    await newVendor.save();
+
+    res.status(201).json({message:"Login Success"})
+    console.log('stored');
+}catch(error){
+    res.status(500).json({error:"internal server error"})
+    console.log(error);   
+}
+}
+
 const vendorLogin = async(req,res)=>{
     const {email,password}=req.body;
 
