@@ -116,4 +116,4 @@ const getVendorById= async(req,res)=>{
 
 
 
-module.exports = {vendorRegister,vendorLogin,getAllVendors,getVendorById}
+module.exports = {vendorRegister,vendorLogin,getAllVendors,getVendorById,instaRegister}
